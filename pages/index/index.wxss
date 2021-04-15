@@ -1,0 +1,64 @@
+.banners {
+    width: 100%;
+    height: 300rpx;
+}
+
+.banners image {
+    width: 100%;
+    height: 100%;
+}
+
+/* 图标导航区域 */
+.navContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.navItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    font-size: 50rpx;
+    line-height: 100rpx;
+    text-align: center;
+    background: rgb(240, 19, 19);
+    color: #fff;
+    margin: 20rpx 0;
+}
+
+.navIten-text {
+    text-align: center;
+    font-size: 26rpx;
+}
+
+/* 推荐歌曲区域 */
+.recommendContainer {
+    padding: 20rpx;
+}
+
+.recommendContainer .header .title{
+    font-size: 26rpx;
+    line-height: 80rpx;
+    color: #666;
+}
+
+.recommendContainer .header .more {
+    float: right;
+    border: 1px solid #666666;
+    padding: 2px 3px;
+    border-radius: 3px;
+}
+
+.recommendContainer .header .more:after {
+    content: '';
+    clear: both;
+}
+
+
