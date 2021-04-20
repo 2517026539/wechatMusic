@@ -22,13 +22,6 @@ Page({
       const banner = await getRequest('/banner', { type: 2 })
       const recommendList = await getRequest('/personalized', { limit: 10 })
       const topListData = await getRequest('/toplist/detail')
-      let index = 0
-      while(index < topListData.list.length) {
-        const { id } = topListData.list[index++]
-        const playlistData = await getRequest("/playlist/detail", { id })
-        console.log(playlistData)
-      }
-      const { list: topList } = topListData
       const { banners } = banner
       const { result } = recommendList
       this.setData({
@@ -44,14 +37,25 @@ Page({
             name: item.name,
             id: item.id
           }
-        }),
-        topList: topList.map(item => {
-          return {
-            name: item.name,
-            tracks: item.tracks
-          }
         })
       })
+      const playList = []
+      let index = 0
+      while(index < topListData.list.length) {
+        const { id } = topListData.list[index++]
+        const playlistData = await getRequest("/playlist/detail", { id })
+        playList.push({ id: playlistData.playlist.id, name: playlistData.playlist.name, tracks: playlistData.playlist.tracks.slice(0,3).map(item => {
+            return {
+              picUrl: item.al.picUrl,
+              id: item.id,
+              name: item.name
+            }
+          })
+        })
+        this.setData({
+          topList: playList
+        })
+      }
     } catch (e) {
       console.log(e)
     }

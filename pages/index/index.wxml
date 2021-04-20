@@ -50,75 +50,12 @@
         <NavHeader title="排行榜" nav="热歌风向标"></NavHeader>
         <!-- 内容区 -->
         <swiper class="rank-swiper" next-margin="60rpx">
-            <swiper-item>
-                <view class="rank-title">云音乐热歌榜</view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-            </swiper-item><swiper-item>
-                <view class="rank-title">云音乐热歌榜</view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-            </swiper-item>
-            <swiper-item>
-                <view class="rank-title">云音乐热歌榜</view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-            </swiper-item>
-            <swiper-item>
-                <view class="rank-title">云音乐热歌榜</view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
-                </view>
-                <view class="music-item">
-                    <image src="/static/images/mylove.jpg"></image>
-                    <text class="music-index">1</text>
-                    <text class="music-name">光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月光辉岁月</text>
+            <swiper-item wx:for="{{topList}}" wx:key="id">
+                <view class="rank-title">{{item.name}}</view>
+                <view class="music-item" wx:for="{{item.tracks}}" wx:for-item="playlist" wx:for-index="idx" wx:key="id">
+                    <image src="{{playlist.picUrl}}"></image>
+                    <text class="music-index">{{idx + 1}}</text>
+                    <text class="music-name">{{playlist.name}}</text>
                 </view>
             </swiper-item>
         </swiper>
